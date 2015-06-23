@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   before_action :find_flat, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @flats = Flat.all
   end
@@ -9,13 +9,13 @@ class FlatsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+
     @flat = Flat.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @flat = @user.flats.build(flat_params)
+
+    @flat = current_user.flats.build(flat_params)
     if @flat.save
       redirect_to flat_path(@flat)
     else
