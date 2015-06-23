@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :flats
+
   get 'home/welcome'
 
   get 'users/edit'
