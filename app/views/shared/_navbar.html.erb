@@ -17,6 +17,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
+            <%= image_tag current_user.picture, class: "img-avatar" %>
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
@@ -48,6 +49,10 @@
           <% else %>
             <li>
               <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
+            </li>
+            <!-- Facebook login -->
+            <li>
+              <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
             </li>
             <li>
               <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
