@@ -7,15 +7,16 @@
           <%= simple_form_for(@flat, html: { multipart: true }) do |f| %>
             <%= f.error_notification %>
 
-            <p>
+
               <%= f.input :title %>
               <%= f.input :street %>
               <%= f.input :zip_code %>
               <%= f.input :city %>
               <%= f.input :capacity %>
               <%= f.input :price %>
+              <!-- <p>Add some pics</p> -->
               <%#= f.input :picture, as: :file %>
-            </p>
+
 
             <%= f.button :submit %>
           <% end %>

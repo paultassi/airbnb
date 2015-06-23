@@ -6,9 +6,14 @@
     <div class="row">
       <% @flats.each do |flat| %>
         <div class="col-xs-12 col-md-4">
-          <div>
-            <%= image_tag @post.picture.url(:medium) %>
-            <p><strong><%= flat.title %> - <%= flat.city %></strong></p>
+
+          <div class="card-white">
+            <p><strong><%= link_to flat.title, flat_path(flat) %></strong></p>
+            <p><%= flat.city %></p>
+
+
+            <%#= image_tag @post.picture.url(:medium) %>
+
             <p><%= flat.capacity %> - <%= flat.price %>$/nights</p>
           </div>
         </div>

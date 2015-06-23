@@ -4,10 +4,8 @@
   background-color: #2B2D2E;
   a{
     color: white;
-    font-size: 40px;
-    padding: 20px;
     &:hover{
-    color: $red;
+    color: $gray-light;
     }
   }
   p{
