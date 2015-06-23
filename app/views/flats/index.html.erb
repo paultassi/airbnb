@@ -1,2 +1,18 @@
-<h1>Flats#index</h1>
-<p>Find me in app/views/flats/index.html.erb</p>
+<div class = "text-center">
+
+  <h1>Houses</h1>
+
+  <div class="container">
+    <div class="row">
+      <% @flats.each do |flat| %>
+        <div class="col-xs-12 col-md-4">
+          <div>
+            <p><strong><%= flat.title %> - <%= flat.city %></strong></p>
+            <p><%= flat.capacity %> - <%= flat.price %>$/nights</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

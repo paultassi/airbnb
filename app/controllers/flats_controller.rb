@@ -13,7 +13,12 @@ class FlatsController < ApplicationController
   end
 
   def create
-    @flat = Flat.new()
+    @flat = @user.flats.build(flat_params)
+    if @flat.save
+      redirect_to flat_path(@flat)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -30,7 +35,7 @@ class FlatsController < ApplicationController
   private
 
   def find_flat
-    @flat : Flat.find(params[:id])
+    @flat = Flat.find(params[:id])
   end
 
   def flat_params

@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  get 'flats/index'
-
-  get 'flats/show'
-
-  get 'flats/new'
-
-  get 'flats/edit'
+  resources :flats
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
