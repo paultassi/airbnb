@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/welcome'
+
   get 'users/edit'
 
   get 'users/update'
