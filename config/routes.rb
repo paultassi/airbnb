@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :flats
+
+  resources :bookings, only: [:index]
+
+  resources :flats do
+    resources :bookings, only: [:create]
+  end
 
   get 'home/welcome'
 

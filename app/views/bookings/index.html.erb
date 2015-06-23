@@ -1,0 +1,13 @@
+<h1>My trips</h1>
+<% @bookings_as_user.each do |booking| %>
+  <h2><%= booking.flat.city %></h2>
+  <h3><%= booking.flat.title %></h3>
+  <p><%= booking.user.first_name %> <%=booking.user.last_name%></p>
+<% end %>
+
+<h1>My bookings</h1>
+<% @bookings_as_owner.each do |booking| %>
+  <h2><%= booking.user.first_name %><%=booking.user.last_name%></h2>
+  <p><%= booking.start_date %></p>
+  <p><%= booking.end_date %></p>
+<% end %>
