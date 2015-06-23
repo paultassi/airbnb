@@ -1,7 +1,11 @@
 <div class = "text-center">
 
+ <%= image_tag @post.picture.url(:medium) %>
+
   <h1><%= @flat.title %></h1>
+
   <p><%= @flat.zip_code %> - <%= @flat.city %></p>
+
 
   <hr>
 
@@ -11,4 +15,7 @@
 
 
   <%= link_to "Edit your announce", edit_flat_path, class: "btn btn-primary" %>
+
+
+    <%= render 'bookings/form' %>
 </div>
