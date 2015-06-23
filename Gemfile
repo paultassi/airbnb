@@ -30,6 +30,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
 
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
