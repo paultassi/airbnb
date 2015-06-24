@@ -1,4 +1,3 @@
-<div class = "text-center">
 
   <h1>Houses</h1>
 
@@ -7,18 +6,16 @@
       <% @flats.each do |flat| %>
         <div class="col-xs-12 col-md-4">
 
-          <div class="card-white">
-            <p><strong><%= link_to flat.title, flat_path(flat) %></strong></p>
-            <p><%= flat.city %></p>
+           <!--  <%#= image_tag @post.picture.url(:medium) %> -->
+            <div class="card-white">
+              <p><strong><%= link_to flat.title, flat_path(flat) %></strong></p>
+              <p><%= flat.city %></p>
 
 
-            <%#= image_tag @post.picture.url(:medium) %>
-
-            <p><%= flat.capacity %> - <%= flat.price %>$/nights</p>
-          </div>
+              <%#= image_tag @post.picture.url(:medium) %>
+              <p><%= flat.capacity %> - <%= flat.price %>$/nights</p>
+            </div>
         </div>
       <% end %>
     </div>
   </div>
-
-</div>
