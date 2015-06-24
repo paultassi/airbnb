@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-default navbar-wagon" role="navigation">
+  <nav class="navbar navbar-default navbar-wagon navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">
-          <%= image_tag "logo.jpg" %>
+          <%= image_tag "logo.svg" %>
         </a>
       </div>
 
@@ -59,7 +59,7 @@
             </li>
           <% end %>
           <li>
-            <%= link_to t(".top_call_to_action", default: "Rent your flat"), "#", class: "btn" %>
+            <%= link_to t(".top_call_to_action", default: "Rent your flat"), "#", class: "btn btn-primary" %>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
