@@ -7,10 +7,12 @@
     <div class="container">
       <div class="row">
 
-          <form class="form-inline">
+        <%= form_tag flats_path, class: "form-inline", method: :get do %>
+          <!-- <form class="form-inline"> -->
             <div class="form-group">
               <label class="sr-only" for="city">City</label>
-              <input type="text" class="form-control" id="city" placeholder="Search by city">
+              <%= text_field_tag :city, nil, class: "form-control", placeholder: "Search by city" %>
+              <!-- <input type="text" class="form-control" id="city" placeholder="Search by city"> -->
             </div>
             <div class="form-group">
               <label class="sr-only" for="check-in">Check-in</label>
@@ -26,7 +28,8 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Search</button>
-          </form>
+          <!-- </form> -->
+        <% end %>
 
       </div>
     </div>
