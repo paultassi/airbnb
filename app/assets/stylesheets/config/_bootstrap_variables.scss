@@ -9,6 +9,7 @@ $body-bg:                 lighten(#000, 93.5%);
 $font-size-base:          $base-size;
 $line-height-base:        $base-height;
 $headings-font-family:    $header-font;
+$font-size-h3:            14px;
 
 // Semantic color scheme
 $brand-primary:   $red;
@@ -24,8 +25,8 @@ $border-radius-small: 2px;
 
 // Links style
 $link-hover-decoration: none;
-$link-hover-color: $blue;
-$link-color: $green;
+$link-hover-color: $red;
+$link-color: $gray;
 
 // Grid padding
 $grid-gutter-width: 0 ;

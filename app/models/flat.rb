@@ -11,7 +11,7 @@ class Flat < ActiveRecord::Base
   validates :house_type, presence: true, inclusion: {in: ["Full house", "Shared room", "Private room"], allow_nil: false}
 
   has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
+    styles: { banner: "1280x500#", medium: "300x200#", thumb: "100x100#" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

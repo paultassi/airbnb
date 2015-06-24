@@ -1,8 +1,19 @@
-<%= simple_form_for [@flat, @booking] do |f| %>
-  <%= f.error_notification %>
+<div id="form">
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="form-inline">
 
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+          <%= simple_form_for [@flat, @booking] do |f| %>
+            <%= f.error_notification %>
 
-  <%= f.button :submit %>
-<% end %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+
+            <%= f.button :submit, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
