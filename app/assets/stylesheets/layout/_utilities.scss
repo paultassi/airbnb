@@ -50,6 +50,14 @@
   padding-top: 7px;
 }
 
+
 .title-margin{
   margin-top: 100px;
+}
+#pointer{
+  cursor: pointer;
+}
+
+.modal-backdrop {
+  z-index: 1 !important;
 }

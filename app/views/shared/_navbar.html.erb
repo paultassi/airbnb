@@ -17,7 +17,6 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <%= image_tag current_user.picture, class: "img-avatar" %>
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
@@ -25,7 +24,7 @@
             </li>
             <li class="dropdown">
               <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-                <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
+                 <%= image_tag current_user.picture, class: "img-avatar" %>
                 Profile <span class="caret"></span>
               <% end %>
               <ul class="dropdown-menu" role="menu">
@@ -48,20 +47,63 @@
             </li>
           <% else %>
             <li>
-              <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
-            </li>
-            <!-- Facebook login -->
-            <li>
-              <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
+              <a data-toggle="modal" data-target="#myModal" id="pointer">Sign up</a>
             </li>
             <li>
-              <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
+              <a data-toggle="modal" data-target="#myModal2" id="pointer">Sign in</a>
+
             </li>
           <% end %>
           <li>
-            <%= link_to t(".top_call_to_action", default: "Rent your flat"), "#", class: "btn btn-primary" %>
+            <%= link_to t(".top_call_to_action", default: "Rent your flat"), new_flat_path, class: "btn btn-primary" %>
           </li>
         </ul>
+                <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="btn btn-primary btn-lg">
+                  <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
+                </button>
+                <p class="text-center"> -- ou --</p>
+                <div class="text-center"><%= link_to t(".sign_up", default: "Inscription avec un email"), new_user_registration_path %>
+                </div>
+                </button>
+                <p class="text-center">En créant un compte, vous acceptez les Conditions générales, la Politique de confidentialité, la Politique de remboursement des voyageurs et les Conditions de la Garantie Hôte Airbnb.</p>
+              </div>
+              <div class="modal-footer" class="text-center">
+                Déjà membre de Airbnb? <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="btn btn-primary btn-lg">
+                  <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
+                </button>
+                <p class="text-center"> -- ou --</p>
+                <%= simple_form_for(User.new, url: user_session_path) do |f| %>
+                  <div class="form-inputs">
+                    <%= f.input :email,     required: false, autofocus: true %>
+                    <%= f.input :password,  required: false %>
+                  </div>
+
+                  <div class="form-actions">
+                    <%= f.button :submit, "Log in" %>
+                  </div>
+                <% end %>
+
+              <div class="modal-footer" class="text-center">
+                Pas encore membre de Airbnb? <%= link_to t(".sign_in", default: "Inscrivez-vous"), new_user_registration_path %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
