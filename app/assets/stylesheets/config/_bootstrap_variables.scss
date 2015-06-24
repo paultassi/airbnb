@@ -11,10 +11,10 @@ $line-height-base:        $base-height;
 $headings-font-family:    $header-font;
 
 // Semantic color scheme
-$brand-primary:   $blue;
+$brand-primary:   $red;
 $brand-success:   $green;
 $brand-info:      $yellow;
-$brand-danger:    $red;
+$brand-danger:    $blue;
 $brand-warning:   $orange;
 
 // General radius (for buttons, inputs, popover...)
@@ -29,4 +29,7 @@ $link-color: $green;
 
 // Grid padding
 $grid-gutter-width: 0 ;
+
+$alert-padding: 0px;
+
 

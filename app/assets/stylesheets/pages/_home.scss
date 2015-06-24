@@ -1,12 +1,48 @@
-.banner{
-  height: 500px;
+#wrapper{
+  // position:relative;
+  height: 600px;
   background-image: image-url('banner.jpg');
-  position: cover;
+  background-size: cover;
+}
+
+#banner-home{
+  padding-top: 75px;
+  // position: relative;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   h1,h3{
-    color: white
-    }
-  #visitor-search{
-  margin-bottom: 20px;
+    color: white;
     }
 }
 
+#searchbar{
+  // position: absolute;
+  margin-top: 330px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: rgba(0,0,0,0.6)
+}
+
+#img-bruges{
+  background: image-url('bruges.png');
+  background-size: cover;
+}
+
+#img-petra{
+  background: image-url('petra.png');
+  background-size: cover;
+}
+#img-trouville{
+  background: image-url('trouville.png');
+  background-size: cover;
+}
+
+.img-card {
+  margin-top: 35px;
+  margin-right: 15px;
+  margin-left: 15px;
+  // width:300px;
+  padding: 140px 0px;
+  color: white;
+}
