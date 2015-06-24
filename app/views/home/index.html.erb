@@ -6,42 +6,30 @@
   <div id="searchbar" class="text-center">
     <div class="container">
       <div class="row">
-
         <%= form_tag flats_path, class: "form-inline", method: :get do %>
-          <!-- <form class="form-inline"> -->
+
             <div class="form-group">
               <label class="sr-only" for="city">City</label>
               <%= text_field_tag :city, nil, class: "form-control", placeholder: "Search by city" %>
-              <!-- <input type="text" class="form-control" id="city" placeholder="Search by city"> -->
             </div>
             <div class="form-group">
               <label class="sr-only" for="check-in">Check-in</label>
-              <input type="date" class="form-control" id="check-in" placeholder="check-in">
+              <%= date_field_tag :check_in, nil, class: "form-control"%>
             </div>
             <div class="form-group">
               <label class="sr-only" for="check-out">Check-out</label>
-              <input type="date" class="form-control" id="check-out" placeholder="check-out">
+              <%= date_field_tag :check_out, nil, class: "form-control"%>
             </div>
             <div class="form-group">
               <label class="sr-only" for="capacity">Capacity</label>
-              <input type="number" class="form-control" id="capacity" placeholder="Number of guest">
+              <%= number_field_tag :capacity, nil, class: "form-control", placeholder: "Number of guest"%>
             </div>
-
-            <button type="submit" class="btn btn-primary">Search</button>
-          <!-- </form> -->
+            <%= submit_tag 'Search', class: "btn btn-primary" %>
         <% end %>
-
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
 
 <div id="flat-examples" class= "text-center vertical-padded">
   <h2>Explore the world</h2>

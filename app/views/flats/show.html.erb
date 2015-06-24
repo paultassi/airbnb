@@ -1,15 +1,16 @@
 <div class = "text-center">
 
- <%#= image_tag @post.picture.url(:medium) %>
+  <%= image_tag @flat.picture.url(:banner) %>
 
-  <h1><%= @flat.title %></h1>
+  <div>
+    <h1><%= @flat.title %></h1>
+  </div>
 
   <p><%= @flat.zip_code %> - <%= @flat.city %></p>
 
 
   <hr>
 
-  <%#= image_tag @post.picture.url(:medium) %>
 
   <p>capacity: <%= @flat.capacity %>, price: <%= @flat.price %>$/night   </p>
 
