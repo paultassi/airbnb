@@ -1,44 +1,68 @@
-<div class="banner text-center">
-    <h1>WELCOME HOME</h1>
-    <h3>Rent unique places to stay from local hosts in 190+ countries.</h3>
+<div id="wrapper">
+  <div id="banner-home" class="text-center">
+    <h1>Welcome Home</h1>
+    <p>Rent unique places to stay from local hosts in 190+ countries.</p>
+  </div>
+  <div id="searchbar" class="text-center">
+    <div class="container">
+      <div class="row">
 
-  <div id=visitor-search>
-    <form class="form-inline">
-      <div class="form-group">
-        <label class="sr-only" for="exampleInputEmail3">Email address</label>
-        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Search by city, address, landmark...">
-        <label class="sr-only" for="exampleInputPassword3">Password</label>
-        <input type="text" class="form-control" id="datetimepicker1" placeholder="Check in">
-        <label class="sr-only" for="exampleInputPassword3">Password</label>
-        <input type="text" class="form-control" id="datetimepicker1" placeholder="Check out">
-         <label class="sr-only" for="exampleInputPassword3">Password</label>
-        <input type="text" class="form-control" id="datetimepicker1" placeholder="1 Guest">
-        <button type="submit" class="btn btn-danger">Search</button>
+          <form class="form-inline">
+            <div class="form-group">
+              <label class="sr-only" for="city">City</label>
+              <input type="text" class="form-control" id="city" placeholder="Search by city">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="check-in">Check-in</label>
+              <input type="date" class="form-control" id="check-in" placeholder="check-in">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="check-out">Check-out</label>
+              <input type="date" class="form-control" id="check-out" placeholder="check-out">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="capacity">Capacity</label>
+              <input type="number" class="form-control" id="capacity" placeholder="Number of guest">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+
       </div>
-    </form>
+    </div>
   </div>
 </div>
 
-<div class="container text-center vertical-padded">
 
-  <h2>Just for the weekend</h2>
-  <h3>Discover new, inspiring places close to home.</h3>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <img src="http://placehold.it/350x200" class="home-examples">
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <img src="http://placehold.it/350x200" class="home-examples">
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <img src="http://placehold.it/350x200" class="home-examples">
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <img src="http://placehold.it/350x200" class="home-examples">
+
+
+
+
+
+<div id="flat-examples" class= "text-center vertical-padded">
+  <h2>Explore the world</h2>
+  <p>Discover where people travel, all around the world.</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div id="img-bruges" class="img-card">
+          <h3>BRUGES</h3>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div id="img-petra" class="img-card">
+          <h3>PETRA</h3>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div id="img-trouville" class="img-card">
+          <h3>TROUVILLE</h3>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
 
 
