@@ -49,3 +49,11 @@
   padding: 0 15px;
   padding-top: 7px;
 }
+
+#pointer{
+  cursor: pointer;
+}
+
+.modal-backdrop {
+  z-index: 1 !important;
+}
