@@ -14,11 +14,11 @@
               <%= f.input :city %>
               <%= f.input :capacity %>
               <%= f.input :price %>
-              <!-- <p>Add some pics</p> -->
-              <%#= f.input :picture, as: :file %>
+              <%= f.input :house_type, collection: ["Full house", "Shared room", "Private room"], as: :select %>
+              <%= f.input :picture, as: :file %>
 
 
-            <%= f.button :submit %>
+            <%= f.button :submit, class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>

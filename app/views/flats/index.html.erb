@@ -8,13 +8,11 @@
         <div class="col-xs-12 col-md-4">
 
           <div class="card-white">
+            <%= image_tag flat.picture.url(:medium) %>
+
             <p><strong><%= link_to flat.title, flat_path(flat) %></strong></p>
-            <p><%= flat.city %></p>
-
-
-            <%#= image_tag @post.picture.url(:medium) %>
-
-            <p><%= flat.capacity %> - <%= flat.price %>$/nights</p>
+            <p><%= flat.zip_code %> - <%= flat.city %></p>
+            <p><%= flat.house_type %></p>
           </div>
         </div>
       <% end %>
