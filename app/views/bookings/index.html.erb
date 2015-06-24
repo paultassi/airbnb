@@ -38,6 +38,7 @@
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card-white">
               <h3><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></h3>
+
               <p>Arrival : <%= booking.start_date %></p>
               <p>Departure : <%= booking.end_date %></p>
             </div>

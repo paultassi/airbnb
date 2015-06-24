@@ -18,7 +18,7 @@
 
 #searchbar{
   // position: absolute;
-  margin-top: 330px;
+  margin-top: 345px;
   padding-top: 30px;
   padding-bottom: 30px;
   background: rgba(0,0,0,0.6)
@@ -44,5 +44,9 @@
   margin-left: 15px;
   // width:300px;
   padding: 140px 0px;
-  color: white;
+  h3 {
+    color: white;
+    font-size: 30px;
+
+  }
 }
