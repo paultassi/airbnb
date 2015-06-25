@@ -7,9 +7,16 @@ Rails.application.routes.draw do
 
   resources :flats do
     resources :bookings, only: [:create]
+    collection do
+      get 'search', to: "flats#search"
+    end
   end
 
+
   resources :users, only: [:edit, :update, :show]
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

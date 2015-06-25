@@ -2,7 +2,7 @@ class FlatsController < ApplicationController
   before_action :find_flat, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @flats = Flat.all#.where(city: params[:city])
+    @flats = Flat.all
   end
 
   def show
@@ -33,6 +33,10 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat.destroy
+  end
+
+  def search
+    @flats = Flat.all.where(city: params[:city])
   end
 
   private
