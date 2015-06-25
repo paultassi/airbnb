@@ -14,6 +14,18 @@
               <% end %>
               <p><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></p>
               <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+              <% if booking.validated? %>
+              <div class="btn btn-success">
+                <p> Request accepted :)</p>
+              </div>
+              <div class="btn btn-info">
+                <p> Pay now !</p>
+              </div>
+              <% else %>
+              <div class="btn btn-primary">
+                <p> Request refused :(</p>
+              <% end %>
+              </div>
             </div>
           </div>
       <% end %>
@@ -41,6 +53,15 @@
 
               <p>Arrival : <%= booking.start_date %></p>
               <p>Departure : <%= booking.end_date %></p>
+
+              <div class="btn btn-success">
+              <%= button_to 'Accept request', { action: 'update', id: booking.id }, method: :patch, params: { validated: true } %>
+              </div>
+
+              <div class="btn btn-primary">
+              <%= button_to 'Refuse request', { action: 'update', id: booking.id }, method: :patch, params: { validated: false } %>
+              </div>
+
             </div>
           </div>
          <% end %>
