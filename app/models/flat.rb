@@ -9,6 +9,9 @@ class Flat < ActiveRecord::Base
   validates :capacity, presence: true
   validates :price, presence: true
   validates :house_type, presence: true, inclusion: {in: ["Full house", "Shared room", "Private room"], allow_nil: false}
+  validates :description, presence: true
+  validates :room_number, presence: true
+  validates :bed_number, presence: true
 
   has_attached_file :picture,
     styles: { banner: "1280x500#", medium: "300x200#", thumb: "100x100#" }
