@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :find_booking, only: [:update]
-  before_action :find_flat, only: [:create]
+  before_action :find_flat, only: [:create, :price_definition]
 
   def index
     @bookings_as_owner = []
@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
 
     redirect_to bookings_path(@booking)
   end
+
 
   # def destroy
   #   @booking.destroy
