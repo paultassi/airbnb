@@ -24,7 +24,7 @@
                   <% if @flat.user.provider? %>
                     <%= image_tag @flat.user.picture, class: "img-profile" %>
                   <% else %>
-                    <%= image_tag @flat.user.picture.url(:thumb) %>
+                    <%= image_tag @flat.user.picture.url(:thumb), class: "img-profile" %>
                   <% end %>
                   <h3><%= @flat.user.first_name %></h3>
                 </div>
