@@ -84,15 +84,31 @@
   border-bottom-right-radius: 4px;
 }
 
+.table{
+  p {
+    padding-top: 40px;
+  }
+  border: none;
+}
+
 .icon-small {
   font-size: 25px;
   padding: 0 15px;
   padding-top: 7px;
 }
 
-.img-profile{
-  width: 150px;
-  // border-radius: 50%;
+.img-profile {
+  width: 100px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.text-green {
+  color: $green;
+}
+
+.text-red {
+  color: $red;
 }
 
 .title-margin{
