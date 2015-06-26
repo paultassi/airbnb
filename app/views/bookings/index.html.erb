@@ -14,17 +14,18 @@
               <% end %>
               <p><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></p>
               <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-              <% if booking.validated? %>
+              <% if booking.validated? == true %>
               <div class="btn btn-success">
                 <p> Request accepted :)</p>
               </div>
               <div class="btn btn-info">
                 <p> Pay now !</p>
-              </div>
+               </div>
               <% else %>
-              <div class="btn btn-primary">
-                <p> Request refused :(</p>
+               <div class="btn btn-primary">
+                  <p> Request refused</p>
               </div>
+
               <% end %>
             </div>
           </div>
@@ -56,8 +57,8 @@
 
               <div>
               <%= button_to 'Accept request', { action: 'update', id: booking.id }, method: :patch, params: { validated: true }, class: "btn btn-success" %>
+               <%= button_to 'Refuse request', { action: 'update', id: booking.id }, method: :patch, params: { validated: false },class: "btn btn-primary" %>
 
-               <%= button_to 'Refuse request', { action: 'update', id: booking.id }, method: :patch, params: { validated: false }, class: "btn btn-primary" %>
               </div>
 
             </div>
@@ -74,31 +75,47 @@
   </div>
 </div>
 
-<div class="booking-recap">
-  <% @bookings_as_owner.each do |booking| %>
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Period</th>
-      <th>Traveller</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><% if booking.validated? %> Accepted
-          <% else %> Refused
-          <% end %>
-      </td>
-      <td>From <%= booking.start_date %> to <%= booking.end_date %>
-      </td>
-      <td><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %>
-      </td>
-      <td><%= booking.price %>$
-      </td>
-    </tr>
-  </tbody>
-  <%end %>
-</table>
+<div class ="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Period</th>
+                <th>Picture</th>
+                <th>Traveller</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @bookings_as_owner.each do |booking| %>
+                <tr>
+                  <td>
+                    <% if booking.validated? %>
+                      <p>Accepted</p>
+                    <% else %>
+                      <p>Refused</p>
+                    <% end %>
+                  </td>
+                  <td>
+                    <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                  </td>
+                  <td>
+                    <%= booking.user.picture %>
+                  </td>
+                  <td>
+                    <p><%=booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></p>
+                  </td>
+                  <td>
+                    <p><%= booking.price %>$</p>
+                  </td>
+                </tr>
+              <%end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
 </div>
