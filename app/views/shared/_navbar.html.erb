@@ -60,20 +60,20 @@
           </li>
         </ul>
                 <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade text-center" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-body">
+              <div class="modal-body text-center">
                 <button type="button" class="btn btn-facebook btn-lg">
                   <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
                 </button>
-                <p class="text-center"> -- ou --</p>
+                <p class="text-center"> ou </p>
                 <div class="text-center"><%= link_to t(".sign_up", default: "Inscription avec un email"), new_user_registration_path %>
                 </div>
                 </button>
                 <p class="text-center">En créant un compte, vous acceptez les Conditions générales, la Politique de confidentialité, la Politique de remboursement des voyageurs et les Conditions de la Garantie Hôte Airbnb.</p>
               </div>
-              <div class="modal-footer" class="text-center">
+              <div class="modal-footer text-center">
                 Déjà membre de Airbnb? <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path %>
               </div>
             </div>
