@@ -27,4 +27,10 @@ has_attached_file :picture,
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end
+
+  def self.process_uri(uri)
+    avatar_url = URI.parse(uri)
+    avatar_url.scheme = 'https'
+    avatar_url.to_s
+  end
 end
