@@ -34,10 +34,9 @@ google.maps.event.addDomListener(window, 'load', function() {
 
 <<<<<<< HEAD
 <script type="text/javascript" src="autocomplete.js"></script> -->
-=======
+
 <script type="text/javascript" src="autocomplete.js"></script>
 
->>>>>>> 5c41b7f983e93ca2a4d302b779bfd2f823e61665
 <div id="form" class="small-margin">
   <div>
     <div class="container">
@@ -55,8 +54,8 @@ google.maps.event.addDomListener(window, 'load', function() {
               <%= f.input :capacity %>
               <%= f.input :price %>
               <%= f.input :description %>
-              <%= f.input :room_number %>
-              <%= f.input :bed_number %>
+              <%= f.input :room_number, :label => "Number of rooms" %>
+              <%= f.input :bed_number, :label => "Number of beds"  %>
               <%= f.input :house_type, collection: ["Full house", "Shared room", "Private room"], as: :select %>
               <%= f.input :picture, as: :file %>
 

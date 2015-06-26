@@ -22,7 +22,7 @@ has_attached_file :picture,
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
-      user.picture = URI.parse(auth.info.image)
+      user.picture = process_uri(auth.info.image)
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
