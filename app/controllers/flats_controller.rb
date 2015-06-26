@@ -30,6 +30,7 @@ class FlatsController < ApplicationController
   end
 
   def edit
+    redirect_to :back if current_user != @flat.user
   end
 
   def update
