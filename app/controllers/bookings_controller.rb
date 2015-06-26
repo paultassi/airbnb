@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  # before_action :find_booking, only: [:edit, :update/]
-  before_action :find_flat, only: [:create]
+  before_action :find_booking, only: [:update]
+  before_action :find_flat, only: [:create, :price_definition]
 
   def index
     @bookings_as_owner = []
@@ -27,6 +27,14 @@ class BookingsController < ApplicationController
       render "flats/show"
     end
   end
+
+  def update
+    validated = params[:validated] == 'true' #string true -> boolean
+    @booking.update({validated: validated})
+
+    redirect_to bookings_path(@booking)
+  end
+
 
   # def destroy
   #   @booking.destroy
