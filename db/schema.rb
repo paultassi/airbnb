@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20150625134946) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.string   "house_type"
+    t.string   "description"
+    t.integer  "room_number"
+    t.integer  "bed_number"
     t.float    "latitude"
     t.float    "longitude"
   end
@@ -65,9 +68,14 @@ ActiveRecord::Schema.define(version: 20150625134946) do
     t.string   "last_name"
     t.string   "provider"
     t.string   "uid"
-    t.string   "picture"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "description"
+    t.integer  "age"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

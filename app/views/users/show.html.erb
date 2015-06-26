@@ -1,2 +1,98 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="title-margin">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <div class="card-fixed text-center">
+          <% if current_user.provider? %>
+            <%= image_tag current_user.picture, class: "img-profile" %>
+          <% else %>
+            <%= image_tag current_user.picture.url(:thumb) %>
+          <% end %>
+          <h3><%= current_user.first_name %></h3>
+
+          <%= link_to "Edit your profile", edit_user_path, class: "btn btn-primary" %>
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-9">
+          <h2>Description</h2>
+          <% if current_user.description? %>
+            <p><%= current_user.description %></p>
+          <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-9 col-md-offset-3">
+
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">My Trips</div>
+
+          <!-- Table -->
+          <table class="table">
+            <% @bookings_as_user.each do |booking| %>
+              <% if booking.validated? %>
+                <tbody>
+                  <tr>
+                    <td>
+                      <%= image_tag booking.flat.picture.url(:thumb), class: "img-profile" %>
+                    </td>
+                    <td>
+                      <%= link_to flat_path(booking.flat) do %>
+                        <p><strong><%= booking.flat.title %></strong></p>
+                      <% end %>
+                    </td>
+                    <td>
+                      <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                    </td>
+                    <td>
+                      <p class="text-red"><strong><%= booking.price %>$</strong></p>
+                    </td>
+                  </tr>
+                </tbody>
+              <% end %>
+            <% end %>
+          </table>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-9 col-md-offset-3">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">My Bookings</div>
+
+          <!-- Table -->
+          <table class="table">
+            <% @bookings_as_owner.each do |booking| %>
+              <tbody>
+                <td>
+                  <% if booking.user.provider? %>
+                    <%= image_tag booking.user.picture, class: "img-profile" %>
+                  <% else %>
+                    <%= image_tag booking.user.picture.url(:thumb), class: "img-profile" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to user_path(booking.user) do %>
+                    <p><strong><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></strong></p>
+                  <% end %>
+
+                </td>
+                <td>
+                  <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                </td>
+                <td>
+                  <p class="text-red"><strong><%= booking.price %>$</strong></p>
+                </td>
+              </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
