@@ -18,8 +18,8 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
+              <%= link_to bookings_path do %>
+                <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Bookings") %>
               <% end %>
             </li>
             <li class="dropdown">

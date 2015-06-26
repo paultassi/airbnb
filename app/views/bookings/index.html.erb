@@ -1,83 +1,88 @@
-<div class="row">
-  <div class="col-xs-12 col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">My trips</div>
-       <!-- Table -->
-        <table class="table">
-          <% @bookings_as_owner.each do |booking| %>
-          <tbody>
-            <tr>
-              <td>
-                <% if booking.validated? %>
-                  <p class="text-green validation-user"><i class="fa fa-check-circle"></i></p>
-                <% else %>
-                  <p class="text-red validation-user"><strong><i class="fa fa-times-circle"></i></strong></p>
-                <% end %>
-              </td>
-              <td>
-                <% if booking.validated? %>
-                  <p class="text-blue validation-user"><i class="fa fa-usd"></i></p>
-                <% else %>
-                <% end %>
-              </td>
-              <td>
-                <%= image_tag booking.flat.picture.url(:thumb), class: "img-profile" %>
-              </td>
-              <td>
-                <%= link_to flat_path(booking.flat) do %>
-                <p><strong><%= booking.flat.city %></strong></p>
-                <% end %>
-              </td>
-              <td>
-                <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-              </td>
-              <td>
-                <p><%= (booking.end_date - booking.start_date).to_i%> nights - <%= booking.price %>$ </p>
-              </td>
-            </tr>
-          </tbody>
-          <% end %>
-        </table>
+<div class="title-margin">
+  <h1 class="text-center">My bookings</h1>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">My trips</div>
+         <!-- Table -->
+          <table class="table">
+            <% @bookings_as_owner.each do |booking| %>
+            <tbody>
+              <tr>
+                <td>
+                  <% if booking.validated? %>
+                    <p class="text-green validation-user"><i class="fa fa-check-circle"></i></p>
+                  <% else %>
+                    <p class="text-red validation-user"><strong><i class="fa fa-times-circle"></i></strong></p>
+                  <% end %>
+                </td>
+                <td>
+                  <% if booking.validated? %>
+                    <p class="text-blue validation-user"><i class="fa fa-usd"></i></p>
+                  <% else %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= image_tag booking.flat.picture.url(:thumb), class: "img-profile" %>
+                </td>
+                <td>
+                  <%= link_to flat_path(booking.flat) do %>
+                  <p><strong><%= booking.flat.city %></strong></p>
+                  <% end %>
+                </td>
+                <td>
+                  <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                </td>
+                <td>
+                  <p><%= (booking.end_date - booking.start_date).to_i%> nights - <%= booking.price %>$ </p>
+                </td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
 
 
-<div class="row">
-  <div class="col-xs-12 col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">My bookings</div>
-       <!-- Table -->
-        <table class="table">
-          <% @bookings_as_owner.each do |booking| %>
-          <tbody>
-            <tr>
-              <td>
-                <%= button_to 'v', { action: 'update', id: booking.id }, method: :patch, params: { validated: true }, class: "btn btn-success validation"%>
-              </td>
-              <td>
-                <%= button_to 'x', { action: 'update', id: booking.id }, method: :patch, params: { validated: false },class: "btn btn-primary validation" %>
-              </td>
-              <td>
-                <%= image_tag booking.user.picture.url(:thumb), class: "img-profile" %>
-              </td>
-              <td>
-                <%= link_to user_path(booking.user) do %>
-                <p><strong><%=booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></strong></p>
-                <% end %>
-              </td>
-              <td>
-                <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-              </td>
-              <td>
-                <p><%= (booking.end_date - booking.start_date).to_i%> nights - <%= booking.price %>$ </p>
-              </td>
-            </tr>
-          </tbody>
-          <% end %>
-        </table>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">My bookings</div>
+         <!-- Table -->
+          <table class="table">
+            <% @bookings_as_owner.each do |booking| %>
+            <tbody>
+              <tr>
+                <td>
+                  <%= button_to 'v', { action: 'update', id: booking.id }, method: :patch, params: { validated: true }, class: "btn btn-success validation"%>
+                </td>
+                <td>
+                  <%= button_to 'x', { action: 'update', id: booking.id }, method: :patch, params: { validated: false },class: "btn btn-primary validation" %>
+                </td>
+                <td>
+                  <%= image_tag booking.user.picture.url(:thumb), class: "img-profile" %>
+                </td>
+                <td>
+                  <%= link_to user_path(booking.user) do %>
+                  <p><strong><%=booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></strong></p>
+                  <% end %>
+                </td>
+                <td>
+                  <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                </td>
+                <td>
+                  <p><%= (booking.end_date - booking.start_date).to_i%> nights - <%= booking.price %>$ </p>
+                </td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
   </div>
