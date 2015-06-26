@@ -1,80 +1,3 @@
-<div class="booking-index">
-  <div class="text-center">
-    <h2>My trips</h2>
-  </div>
-  <div class ="container">
-    <div class="row">
-      <% @bookings_as_user.each do |booking| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card-white">
-
-              <%= image_tag booking.flat.picture.url(:medium) %>
-              <%= link_to flat_path(booking.flat) do %>
-                <h4><%= booking.flat.title %> - <%= booking.flat.city %></h4>
-              <% end %>
-              <p><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></p>
-              <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-              <% if booking.validated? == true %>
-              <div class="btn btn-success">
-                <p>  <i class="fa fa-check-circle"></i> Request accepted :)</p>
-              </div>
-              <div class="btn btn-info">
-                <p> Pay now !</p>
-               </div>
-              <% else %>
-               <div class="btn btn-primary">
-                  <p> Request refused</p>
-              </div>
-
-              <% end %>
-            </div>
-          </div>
-      <% end %>
-    </div>
-    <div class="text-center btn-see-all">
-      <div class="btn btn-primary">
-        <i class="fa fa-plus"></i>
-          <%= link_to ' See all my trips', '#'%>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="booking-index">
-  <div class="text-center">
-    <h2>My bookings</h2>
-  </div>
-  <div class ="container">
-    <div class="row">
-      <% @bookings_as_owner.each do |booking| %>
-        <%= link_to user_path(booking.user) do %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card-white">
-              <h3><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></h3>
-              <p><%= (booking.end_date - booking.start_date).to_i%> nights - <%= booking.price %>$ </p>
-              <p>Arrival : <%= booking.start_date %></p>
-              <p>Departure : <%= booking.end_date %></p>
-
-              <div>
-              <%= button_to 'v', { action: 'update', id: booking.id }, method: :patch, params: { validated: true }, class: "btn btn-success" %>
-               <%= button_to 'x', { action: 'update', id: booking.id }, method: :patch, params: { validated: false },class: "btn btn-primary" %>
-
-              </div>
-
-            </div>
-          </div>
-         <% end %>
-      <% end %>
-    </div>
-    <div class="text-center btn-see-all">
-      <div class="btn btn-primary">
-        <i class="fa fa-plus"></i>
-        <%= link_to ' See all my bookings', '#'%>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="row">
   <div class="col-xs-12 col-md-8 col-md-offset-2">
     <div class="panel panel-default">
@@ -87,14 +10,14 @@
             <tr>
               <td>
                 <% if booking.validated? %>
-                  <p class="text-green"><i class="fa fa-check-circle"></i></p>
+                  <p class="text-green validation-user"><i class="fa fa-check-circle"></i></p>
                 <% else %>
-                  <p class="text-red"><strong><i class="fa fa-times-circle"></i></strong></p>
+                  <p class="text-red validation-user"><strong><i class="fa fa-times-circle"></i></strong></p>
                 <% end %>
               </td>
               <td>
                 <% if booking.validated? %>
-                  <p class="btn btn-info"> Pay now !</p>
+                  <p class="text-blue validation-user"><i class="fa fa-usd"></i></p>
                 <% else %>
                 <% end %>
               </td>
@@ -132,13 +55,13 @@
           <tbody>
             <tr>
               <td>
-                <%= button_to 'v', { action: 'update', id: booking.id }, method: :patch, params: { validated: true }, class: "btn btn-success"%>
+                <%= button_to 'v', { action: 'update', id: booking.id }, method: :patch, params: { validated: true }, class: "btn btn-success validation"%>
               </td>
               <td>
-                <%= button_to 'x', { action: 'update', id: booking.id }, method: :patch, params: { validated: false },class: "btn btn-primary" %>
+                <%= button_to 'x', { action: 'update', id: booking.id }, method: :patch, params: { validated: false },class: "btn btn-primary validation" %>
               </td>
               <td>
-                <%= image_tag booking.flat.picture.url(:thumb), class: "img-profile" %>
+                <%= image_tag booking.user.picture.url(:thumb), class: "img-profile" %>
               </td>
               <td>
                 <%= link_to user_path(booking.user) do %>
