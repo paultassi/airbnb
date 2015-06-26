@@ -71,7 +71,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-lg" %>
+          <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-lg btn-margin" %>
           <br>
           <p class="text-center"> ou </p>
           <div class="text-center"><%= link_to t(".sign_up", default: "Inscription avec un email"), new_user_registration_path, class: "text-red" %>
@@ -89,7 +89,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-lg" %>
+          <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-lg btn-margin" %>
           <p class="text-center"> ou</p>
           <%= simple_form_for(User.new, url: user_session_path) do |f| %>
             <div class="form-inputs">
@@ -98,7 +98,7 @@
             </div>
 
             <div class="form-actions">
-              <%= f.button :submit, "Log in" %>
+              <%= f.button :submit, "Log in", class: "btn btn-primary btn-margin" %>
             </div>
           <% end %>
 
@@ -133,7 +133,7 @@
             </div>
 
             <div class="form-actions">
-              <%= f.button :submit, "Create a flat", class: "btn btn-primary" %>
+              <%= f.button :submit, "Create a flat", class: "btn btn-primary btn-margin" %>
             </div>
           <% end %>
         </div>
