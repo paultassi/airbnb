@@ -7,7 +7,7 @@
           <% if current_user.provider? %>
             <%= image_tag current_user.picture, class: "img-profile" %>
           <% else %>
-            <%= image_tag current_user.picture.url(:thumb) %>
+            <%= image_tag current_user.picture.url(:thumb), class: "img-profile" %>
           <% end %>
           <h3><%= current_user.first_name %></h3>
 
