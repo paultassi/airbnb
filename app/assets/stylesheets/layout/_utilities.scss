@@ -35,7 +35,6 @@
 .vertical-padded {
   padding-top: 70px;
   padding-bottom: 70px;
-  border: 1px solid rgb(230, 230, 230)
 }
 
 .padding{
@@ -60,6 +59,10 @@
     font-size: 20px;
     margin-bottom: 20px;
   }
+}
+
+.padding-left{
+  padding-left: 24px;
 }
 
 .card-title {
@@ -122,10 +125,24 @@
   cursor: pointer;
 }
 
+.btn-margin{
+  margin:20px;
+  a {
+    width:100%;
+  }
+}
+
+.modal-body{
+  font-family: $base-font;
+}
+
 .modal-backdrop {
   z-index: 1 !important;
 }
 
+.modal-content {
+  width:300px;
+}
 .btn-facebook {
   background: #415e9b;
 
@@ -133,3 +150,4 @@
     color: white;
   }
 }
+
