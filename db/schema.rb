@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 20150625134946) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.string   "house_type"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "description"
     t.integer  "room_number"
     t.integer  "bed_number"
-    t.float    "latitude"
-    t.float    "longitude"
   end
 
   add_index "flats", ["user_id"], name: "index_flats_on_user_id", using: :btree

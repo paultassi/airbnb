@@ -4,6 +4,12 @@ class Booking < ActiveRecord::Base
 
   validates :start_date, presence: true
   validates :end_date, presence: true
+  # validates :not_overriding
+
+  # def not_overriding
+  #   bookings = self.flat.bookings
+  #   bookings.each...
+  # end
 
   def price
     number_of_nights = (self.end_date - self.start_date).to_i
