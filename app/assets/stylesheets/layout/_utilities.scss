@@ -112,6 +112,9 @@
 
 .text-red {
   color: $red;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .title-margin{
@@ -136,13 +139,15 @@
   z-index: 1 !important;
 }
 
-.modal-content {
+.modal-dialog {
   width:300px;
 }
+
+.modal-footer {
+  text-align: center;
+}
+
 .btn-facebook {
   background: #415e9b;
-
-  a{
-    color: white;
-  }
+  color: white;
 }
