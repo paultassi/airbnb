@@ -1,6 +1,5 @@
 <div class="title-margin">
 
-
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -25,70 +24,75 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-9 col-md-offset-3">
-        <div class="pannel">
-          <div class="card-title">
-            <h2>My Trips</h2>
-          </div>
-          <div class="user-card-white">
+
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">My Trips</div>
+
+          <!-- Table -->
+          <table class="table">
             <% @bookings_as_user.each do |booking| %>
-                  <div class="container">
-                    <div class="row">
-                      <div class="padding">
-                        <div class="col-xs-12 col-md-2">
-                          <%= image_tag booking.flat.picture.url(:thumb) %>
-                        </div>
-
-                        <div class="col-xs-12 col-md-10">
-                          <%= link_to flat_path(booking.flat) do %>
-                            <h4><%= booking.flat.title %> - <%= booking.flat.city %></h4>
-                          <% end %>
-                          <p><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></p>
-                          <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
+              <% if booking.validated? %>
+                <tbody>
+                  <tr>
+                    <td>
+                      <%= image_tag booking.flat.picture.url(:thumb), class: "img-profile" %>
+                    </td>
+                    <td>
+                      <%= link_to flat_path(booking.flat) do %>
+                        <p><strong><%= booking.flat.title %></strong></p>
+                      <% end %>
+                    </td>
+                    <td>
+                      <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                    </td>
+                    <td>
+                      <p class="text-red"><strong><%= booking.price %>$</strong></p>
+                    </td>
+                  </tr>
+                </tbody>
+              <% end %>
             <% end %>
-          </div>
+          </table>
         </div>
+
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-9 col-md-offset-3">
-        <div class="card-title">
-          <h2>My Booking</h2>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">My Bookings</div>
+
+          <!-- Table -->
+          <table class="table">
+            <% @bookings_as_owner.each do |booking| %>
+              <tbody>
+                <td>
+                  <% if booking.user.provider? %>
+                    <%= image_tag booking.user.picture, class: "img-profile" %>
+                  <% else %>
+                    <%= image_tag booking.user.picture.url(:thumb), class: "img-profile" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to user_path(booking.user) do %>
+                    <p><strong><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></strong></p>
+                  <% end %>
+
+                </td>
+                <td>
+                  <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                </td>
+                <td>
+                  <p class="text-red"><strong><%= booking.price %>$</strong></p>
+                </td>
+              </tbody>
+            <% end %>
+          </table>
         </div>
-        <% @bookings_as_owner.each do |booking| %>
-
-              <div class="user-card-white">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xs-12 col-md-2">
-                      <% if current_user.provider? %>
-                        <%= image_tag current_user.picture, class: "img-profile" %>
-                      <% else %>
-                        <%= image_tag current_user.picture.url(:thumb) %>
-                      <% end %>
-                    </div>
-                    <div class="col-xs-12 col-md-10">
-                      <%= link_to user_path(booking.user) do %>
-                        <h4><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></h4>
-                      <% end %>
-                      <p>Arrival : <%= booking.start_date %></p>
-                      <p>Departure : <%= booking.end_date %></p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-        <% end %>
       </div>
     </div>
-
   </div>
-
-
 
 </div>
