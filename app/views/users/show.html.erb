@@ -63,34 +63,34 @@
         <div class="panel panel-default">
                   <!-- Default panel contents -->
           <div class="panel-heading">My Bookings</div>
+          <table class="table">
+            <% @bookings_as_owner.each do |booking| %>
+              <tbody>
+                  <td>
+                    <% if booking.user.provider? %>
+                      <%= image_tag booking.user.picture, class: "img-profile" %>
+                    <% else %>
+                      <%= image_tag booking.user.picture.url(:thumb), class: "img-profile" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to user_path(booking.user) do %>
+                      <p><strong><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></strong></p>
+                    <% end %>
 
+                  </td>
+                  <td>
+                    <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                  </td>
+                  <td>
+                    <p class="text-red"><strong><%= booking.price %>$</strong></p>
+                  </td>
+                </tbody>
+            <% end %>
+          </table>
         </div>
                   <!-- Table -->
-        <table class="table">
-          <% @bookings_as_owner.each do |booking| %>
-            <tbody>
-                <td>
-                  <% if booking.user.provider? %>
-                    <%= image_tag booking.user.picture, class: "img-profile" %>
-                  <% else %>
-                    <%= image_tag booking.user.picture.url(:thumb), class: "img-profile" %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to user_path(booking.user) do %>
-                    <p><strong><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></strong></p>
-                  <% end %>
 
-                </td>
-                <td>
-                  <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-                </td>
-                <td>
-                  <p class="text-red"><strong><%= booking.price %>$</strong></p>
-                </td>
-              </tbody>
-          <% end %>
-        </table>
       </div>
     </div>
 
