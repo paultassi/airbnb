@@ -25,32 +25,33 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-9 col-md-offset-3">
-        <div class="card-title">
-          <h2>My Trips</h2>
-        </div>
-        <div class="user-card-white">
-          <% @bookings_as_user.each do |booking| %>
-                <div class="container">
-                  <div class="row">
-                    <div class="padding">
-                      <div class="col-xs-12 col-md-2">
-                        <%= image_tag booking.flat.picture.url(:thumb) %>
+        <div class="pannel">
+          <div class="card-title">
+            <h2>My Trips</h2>
+          </div>
+          <div class="user-card-white">
+            <% @bookings_as_user.each do |booking| %>
+                  <div class="container">
+                    <div class="row">
+                      <div class="padding">
+                        <div class="col-xs-12 col-md-2">
+                          <%= image_tag booking.flat.picture.url(:thumb) %>
+                        </div>
+
+                        <div class="col-xs-12 col-md-10">
+                          <%= link_to flat_path(booking.flat) do %>
+                            <h4><%= booking.flat.title %> - <%= booking.flat.city %></h4>
+                          <% end %>
+                          <p><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></p>
+                          <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+                        </div>
                       </div>
 
-                      <div class="col-xs-12 col-md-10">
-                        <%= link_to flat_path(booking.flat) do %>
-                          <h4><%= booking.flat.title %> - <%= booking.flat.city %></h4>
-                        <% end %>
-                        <p><%= booking.user.first_name.try(:camelize) %> <%=booking.user.last_name.try(:camelize) %></p>
-                        <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-                      </div>
                     </div>
-
                   </div>
-                </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-
       </div>
     </div>
     <div class="row">
