@@ -7,6 +7,13 @@ class FlatsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @flat = Flat.find(params[:id])
+    # @flat_coordinates = [{ lat: @flat.latitude, lng: @flat.longitude }]
+
+    @markers = Gmaps4rails.build_markers(@flat) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   def new
@@ -14,7 +21,6 @@ class FlatsController < ApplicationController
   end
 
   def create
-
     @flat = current_user.flats.build(flat_params)
     if @flat.save
       redirect_to flat_path(@flat)
@@ -37,6 +43,10 @@ class FlatsController < ApplicationController
 
   def search
     @flats = Flat.all.where(city: params[:city])
+    @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   private
