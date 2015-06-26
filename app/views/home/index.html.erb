@@ -46,12 +46,16 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div id="img-petra" class="img-card">
-          <h3>PETRA</h3>
+          <%= link_to search_flats_path(city: "Petra") do %>
+            <h3>PETRA</h3>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div id="img-trouville" class="img-card">
-          <h3>TROUVILLE</h3>
+          <%= link_to search_flats_path(city: "Trouville") do %>
+            <h3>TROUVILLE</h3>
+          <% end %>
         </div>
       </div>
     </div>

@@ -55,7 +55,9 @@
             </li>
           <% end %>
           <li>
-            <a data-toggle="modal" data-target="#myModal2" id="pointer" class="btn btn-primary" >Rent your flat</a>
+
+            <a data-toggle="modal" data-target="#myModalRentAFlat" class="btn btn-primary">Rent your flat</a>
+
           </li>
         </ul>
 
@@ -100,10 +102,41 @@
             </div>
           <% end %>
 
-        <div class="modal-footer" class="text-center">
-          Pas encore membre de Airbnb? <%= link_to t(".sign_in", default: "Inscrivez-vous"), new_user_registration_path, class: "text-red" %>
+          <div class="modal-footer" class="text-center">
+            Pas encore membre de Airbnb? <%= link_to t(".sign_in", default: "Inscrivez-vous"), new_user_registration_path, class: "text-red" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+
+  <div class="modal fade" id="myModalRentAFlat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h2 class="text-center">Rent a flat</h2>
+          <%= simple_form_for(Flat.new, html: { multipart: true }) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :title %>
+              <%= f.input :street %>
+              <%= f.input :zip_code %>
+              <%= f.input :city %>
+              <%= f.input :capacity %>
+              <%= f.input :price %>
+              <%= f.input :description %>
+              <%= f.input :room_number %>
+              <%= f.input :bed_number %>
+              <%= f.input :house_type, collection: ["Full house", "Shared room", "Private room"], as: :select %>
+              <%= f.input :picture, as: :file %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Create a flat", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.navbar-collapse -->

@@ -1,12 +1,15 @@
 .booking-index{
   padding-top: 50px;
   padding-bottom: 30px;
-  border: 1px solid rgb(230, 230, 230);
 }
 
-.booking-recap{
-  background-color: white;
-  td{
-    margin:10px;
+.validation{
+  margin-top: 35px;
+}
+
+.validation-user{
+  i {
+    font-size: 30px;
+    margin-right: 5px;
   }
 }
