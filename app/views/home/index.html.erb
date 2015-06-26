@@ -14,11 +14,11 @@
             </div>
             <div class="form-group">
               <label class="sr-only" for="check-in">Check-in</label>
-              <%= date_field_tag :check_in, nil, class: "form-control"%>
+              <%= text_field_tag :check_in, nil, class: "form-control", :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"}, placeholder: "check-in" %>
             </div>
             <div class="form-group">
               <label class="sr-only" for="check-out">Check-out</label>
-              <%= date_field_tag :check_out, nil, class: "form-control"%>
+              <%= text_field_tag :check_out, nil, class: "form-control", :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"}, placeholder: "check-out" %>
             </div>
             <div class="form-group">
               <label class="sr-only" for="capacity">Capacity</label>
