@@ -1,19 +1,23 @@
-<div id="form">
-  <div>
-    <div class="container">
-      <div class="row">
-        <div class="form-inline">
+<%= form_tag search_flats_path, method: :get do %>
+              <p><strong>Check-in Date</strong></p>
+              <div class="form-group">
+                <label class="sr-only" for="check-in">Check-in</label>
+                <%= text_field_tag :check_in, nil, class: "form-control", :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"}, placeholder: "check-in" %>
+              </div>
+              <p><strong>Check-out Date</strong></p>
+              <div class="form-group">
+                <label class="sr-only" for="check-out">Check-out</label>
+                <%= text_field_tag :check_out, nil, class: "form-control", :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"}, placeholder: "check-out" %>
+              </div>
+              <p><strong>Number of Guests</strong></p>
+              <div class="form-group">
+                <label class="sr-only" for="capacity">Capacity</label>
+                <%= number_field_tag :capacity, nil, class: "form-control", placeholder: "Number of guest"%>
+              </div>
 
-          <%= simple_form_for [@flat, @booking] do |f| %>
-            <%= f.error_notification %>
+              <% if @booking.save %>
+                <p><%= @flat.price %>$ x <%= (@booking.end_date - @booking.start_date).to_i%> nights - <%= @booking_price %></p>
+              <% end %>
 
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
-
-            <%= f.button :submit, class: "btn btn-primary" %>
+              <%= submit_tag 'Send a request', class: "btn btn-primary" %>
           <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
