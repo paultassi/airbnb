@@ -49,6 +49,9 @@ google.maps.event.addDomListener(window, 'load', function() {
               <%= f.input :city %>
               <%= f.input :capacity %>
               <%= f.input :price %>
+              <%= f.input :description %>
+              <%= f.input :room_number %>
+              <%= f.input :bed_number %>
               <%= f.input :house_type, collection: ["Full house", "Shared room", "Private room"], as: :select %>
               <%= f.input :picture, as: :file %>
 
